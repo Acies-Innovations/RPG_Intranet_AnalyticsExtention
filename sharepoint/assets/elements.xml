@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+    <CustomAction
+        Title="Analytics"
+        Location="ClientSideExtension.ApplicationCustomizer"
+        ClientSideComponentId="49cd9756-0867-4ba3-96b0-a9e67cf0a291"
+        ClientSideComponentProperties="{&quot;userEmail&quot;:&quot;{UserEmail}&quot;, &quot;externalUser&quot;:&quot;{ExternalUser}&quot;}">
+    </CustomAction>
+</Elements>
