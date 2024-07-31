@@ -62,7 +62,7 @@ export default class AnalyticsApplicationCustomizer
       };
 
       console.log('Page Tracking Data:', logData);
-
+      //
       // Send the page tracking data to the provided API
       await this.sendPageTrackingData(logData);
 
