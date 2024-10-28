@@ -46,6 +46,8 @@ export default class AnalyticsApplicationCustomizer
       const companyname = this._getCompanyFromEmail();
       const siteID = this.context.pageContext.site.id.toString();
       const pageID = this.context.pageContext.legacyPageContext["pageItemId"];
+      const url = this.context.pageContext.site.serverRequestPath;
+      const pageName = url.substring(url.lastIndexOf('/') + 1, url.lastIndexOf('.aspx'));
       const currentDatetime = new Date().toISOString(); // ISO 8601 format
       const usercompany = this._getCompanyFromEmail();
       const devicecontext = this._getDeviceContext();
@@ -58,7 +60,8 @@ export default class AnalyticsApplicationCustomizer
         pageID,
         currentDatetime,
         usercompany,
-        devicecontext
+        devicecontext,
+        pageName
       };
 
       console.log('Page Tracking Data:', logData);
@@ -116,6 +119,8 @@ export default class AnalyticsApplicationCustomizer
         const companyname = this._getCompanyFromEmail();
         const siteID = this.context.pageContext.site.id.toString();
         const pageID = this.context.pageContext.legacyPageContext["pageItemId"];
+        const url = this.context.pageContext.site.serverRequestPath;
+        const pageName = url.substring(url.lastIndexOf('/') + 1, url.lastIndexOf('.aspx'));
         const currentDatetime = new Date().toISOString(); // ISO 8601 format
         const usercompany = this._getCompanyFromEmail();
         const devicecontext = this._getDeviceContext();
@@ -128,7 +133,8 @@ export default class AnalyticsApplicationCustomizer
           pageID,
           currentDatetime,
           usercompany,
-          devicecontext
+          devicecontext,
+          pageName
         };
 
         console.log('Page Tracking Data:', logData);
@@ -148,7 +154,7 @@ export default class AnalyticsApplicationCustomizer
     }
 
     private async sendPageTrackingData(pageTrackingData: any): Promise<void> {
-      const apiEndpoint = 'https://azfunctionrpguserusagereport.azurewebsites.net/api/UserUsageReportsFunction?code=xaM5TIC0fO0T7rIzJezNJvO3EyTVmiSbyVcbgtpH263CAzFuGIYgRQ=='; 
+      const apiEndpoint = 'https://azfunctionrpguseranalyticsreport.azurewebsites.net/api/UserUsageReportsFunction?code=dCjmkrTo7pu5czZE9UuYCghykJLVZ7EMLEy5RIEWAQy9AzFuy4dP7Q=='; 
 
       try {
         const response = await fetch(apiEndpoint, {
@@ -163,6 +169,7 @@ export default class AnalyticsApplicationCustomizer
             companyname: pageTrackingData.companyname,
             siteID: pageTrackingData.siteID,
             pageID: pageTrackingData.pageID,
+            pageName: pageTrackingData.pageName,
             currentDatetime: pageTrackingData.currentDatetime,
             usercompany: pageTrackingData.usercompany,
             devicecontext: pageTrackingData.devicecontext
