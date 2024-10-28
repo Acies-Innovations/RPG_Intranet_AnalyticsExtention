@@ -41,7 +41,7 @@ export default class AnalyticsApplicationCustomizer
       });
 
       const userName = user.displayName;
-      this.properties.userEmail = user.mail;
+      this.properties.userEmail = user.mail.toLowerCase();  
       const useremail = user.mail;
       const companyname = this._getCompanyFromEmail();
       const siteID = this.context.pageContext.site.id.toString();
@@ -114,7 +114,7 @@ export default class AnalyticsApplicationCustomizer
         });
 
         const userName = user.displayName;
-        this.properties.userEmail = user.mail;
+        this.properties.userEmail = user.mail.toLowerCase(); 
         const useremail = user.mail;
         const companyname = this._getCompanyFromEmail();
         const siteID = this.context.pageContext.site.id.toString();
