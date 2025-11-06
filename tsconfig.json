@@ -24,6 +24,7 @@
     "lib": [
       "es2017",
       "dom",
+      "es2019",
       "es2015.collection",
       "es2015.promise"
     ]
